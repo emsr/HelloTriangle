@@ -5,14 +5,14 @@ LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 all: HelloTriangle
 
-HelloTriangle: main.cpp
+shaders/vert.spv: shaders/shader.vert
+	glslc shaders/shader.vert -o shaders/vert.spv
+
+shaders/frag.spv: shaders/shader.frag
+	glslc shaders/shader.frag -o shaders/frag.spv
+
+HelloTriangle: main.cpp shaders/vert.spv shaders/frag.spv
 	g++ $(CFLAGS) -o HelloTriangle main.cpp $(LDFLAGS)
-
-#shaders/frag.spv: code/26_shader_depth.frag
-#	glslc code/26_shader_depth.frag -o shaders/frag.spv
-
-#shaders/vert.spv: code/26_shader_depth.vert
-#	glslc code/26_shader_depth.vert -o shaders/vert.spv
 
 .PHONY: test clean
 
