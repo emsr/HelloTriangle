@@ -26,10 +26,13 @@ const std::vector<const char*> deviceExtensions = {
 };
 
 #ifdef NDEBUG
-    const bool enableValidationLayers = false;
+const bool enableValidationLayers = false;
 #else
-    const bool enableValidationLayers = true;
+const bool enableValidationLayers = true;
 #endif
+
+void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
 
 class HelloTriangleApplication
 {
@@ -139,6 +142,8 @@ private:
         glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
         window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan", nullptr, nullptr);
+        glfwSetKeyCallback(window, keyCallback);
+        glfwSetMouseButtonCallback(window, mouseButtonCallback);
     }
 
     //
@@ -1172,6 +1177,30 @@ private:
         std::cerr << "validation layer: " << pCallbackData->pMessage << std::endl;
 
         return VK_FALSE;
+    }
+
+    ///
+    ///
+    ///
+    static void
+    keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+    {
+        if (key == GLFW_KEY_X && action == GLFW_PRESS)
+        {
+            exit(0);
+        }
+    }
+
+    ///
+    ///
+    ///
+    static void
+    mouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+    {
+        if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+        {
+            std::cout << "Pop!\n";
+        }
     }
 };
 
