@@ -14,6 +14,9 @@ shaders/frag.spv: shaders/shader.frag
 HelloTriangle: main.cpp shaders/vert.spv shaders/frag.spv
 	g++ $(CFLAGS) -o HelloTriangle main.cpp $(LDFLAGS)
 
+temp: temp.cpp shaders/vert.spv shaders/frag.spv
+	g++ $(CFLAGS) -o temp temp.cpp $(LDFLAGS)
+
 .PHONY: test clean
 
 test: HelloTriangle
