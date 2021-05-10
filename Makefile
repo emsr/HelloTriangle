@@ -1,8 +1,7 @@
 
-#CFLAGS = -std=c++17 -O2
-STB_INCLUDE_PATH = /home/ed/technologies/vulkan/shared_sources/fileformats/
-
-CFLAGS = -std=c++17 -g -I$(STB_INCLUDE_PATH)
+STB_INCLUDE_PATH = /home/ed/technologies/vulkan/shared_sources/fileformats
+TINYOBJ_INCLUDE_PATH = /home/ed/technologies/vulkan/shared_sources/fileformats
+CFLAGS = -std=c++17 -g -I$(STB_INCLUDE_PATH) -I$(TINYOBJ_INCLUDE_PATH)
 LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 all: HelloTriangle
