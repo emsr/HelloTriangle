@@ -8,6 +8,8 @@ The stuff in the 3rdparty directory are required to load graphics content. They 
   - stb_image.h is from a collection of single-header libs (you only need the one): https://github.com/nothings/stb.git
   - tiny_obj_loader.h is from https://github.com/tinyobjloader/tinyobjloader.git
 
-You'll need [glm](https://github.com/g-truc/glm.git) - a C++ template library to emulate GLSL maths.
-You'll need [GLFW](https://github.com/glfw/glfw.git) - for simple GUI support
+In addition, you'll want two more involved libraries for windowing (GUI) and GLSL math support.
+ - [glm](https://github.com/g-truc/glm.git) - a C++ template library to emulate GLSL maths.
+ - [GLFW](https://github.com/glfw/glfw.git) - for simple GUI support
+
 On Linux, these last two are generally available from package managers.
