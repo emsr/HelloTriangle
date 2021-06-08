@@ -1,6 +1,6 @@
 
-STB_INCLUDE_PATH = /home/ed/technologies/vulkan/shared_sources/fileformats
-TINYOBJ_INCLUDE_PATH = /home/ed/technologies/vulkan/shared_sources/fileformats
+STB_INCLUDE_PATH = ./3rdparty
+TINYOBJ_INCLUDE_PATH = ./3rdparty
 CFLAGS = -std=c++17 -g -I$(STB_INCLUDE_PATH) -I$(TINYOBJ_INCLUDE_PATH)
 LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
