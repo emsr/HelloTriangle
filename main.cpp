@@ -46,10 +46,11 @@ const std::vector<const char*> deviceExtensions = {
 };
 
 #ifdef NDEBUG
-const bool enableValidationLayers = false;
+const bool enableValidationLayersDefault = false;
 #else
-const bool enableValidationLayers = true;
+const bool enableValidationLayersDefault = true;
 #endif
+bool enableValidationLayers = enableValidationLayersDefault;
 
 //
 //
@@ -2341,8 +2342,21 @@ private:
 };
 
 int
-main()
+main(int n_app_args, char **app_arg)
 {
+    if (n_app_args > 1)
+    {
+        long int validate = atol(app_arg[1]);
+        if (validate > 0)
+        {
+            enableValidationLayers = true;
+        }
+        else
+        {
+            enableValidationLayers = false;
+        }
+    }
+
     HelloTriangleApplication app;
 
     try
